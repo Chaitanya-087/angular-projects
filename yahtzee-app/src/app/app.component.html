@@ -1,0 +1,41 @@
+<main>
+  <div class="game-container">
+    <div class="action-area">
+      <div class="score">
+        <p>
+          Score: {{gameService.getScore()}}
+        </p>
+      </div>
+      <div class="game-tools">
+        <div class="dices">
+          <div class="die" *ngFor="let die of gameService.dice">
+            {{die}}
+          </div>
+        </div>
+        <button class="roll-btn" (click)="gameService.rollDice(); gameService.toggleRolling()">
+          roll
+        </button>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>category</th>
+          <th>score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of gameService.getCategories()">
+          <td>{{category}}</td>
+          <td class="score">
+            <div class="score-cell">
+            {{gameService.getBoard()[category]}}
+            <div class="score-setter-btn" *ngIf="gameService.isRolling && gameService.getAvailableCategories().includes(category)">
+              <button (click)="gameService.setCategoryScore(category); gameService.toggleRolling()">{{gameService.getCategoryScore(category)}}</button>
+            </div>
+            </div>
+          </td>
+        </tr>
+    </table>
+  </div>
+</main>
