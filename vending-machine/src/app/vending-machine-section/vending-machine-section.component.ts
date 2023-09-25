@@ -13,7 +13,7 @@ export class VendingMachineSectionComponent {
   section?: Section;
   constructor(private activatedRoute: ActivatedRoute,private router: Router, private vendingMachineService: VendingMachineService) { }
   products: Slot[] = [];
-  
+
   ngOnInit(): void {
     this.getSection();
   }
@@ -33,7 +33,7 @@ export class VendingMachineSectionComponent {
       this.section = section;
       this.add(slot, quantityRef.valueAsNumber);
     });
-    console.log(this.products);
+    localStorage.setItem('products', JSON.stringify(this.products));
   }
 
   add(product: Slot, quantity: number) {
@@ -56,7 +56,7 @@ export class VendingMachineSectionComponent {
         this.products = this.products.filter(item => item.id != product.id);
       }
     }
-    console.log(this.products); 
+    localStorage.setItem('products', JSON.stringify(this.products));
   }
 
   close() {

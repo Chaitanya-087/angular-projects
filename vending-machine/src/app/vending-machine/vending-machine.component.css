@@ -1,0 +1,138 @@
+.machine {
+    width: 100%;
+    height: 100vh;
+    padding: 0 10px 10px 10px;
+    margin: auto;
+    max-width: 90%;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+}
+
+.select-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+}
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100%;
+    max-width: 600px; 
+    height: 100%;
+    padding: 10px;
+}
+.select-box input{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    border: 1px solid #f5f5f5;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    flex: 2;
+    max-width: 300px;
+}
+.select-box button {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #f5f5f5;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.section-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 674px;
+    gap: 1rem;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 200px;
+    height: 200px;
+    border-radius: 0.5rem;
+    background-color: #f5f5f5;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.overlay {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.generated-bill {
+    width: 343px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 0.25rem;
+}
+
+.generated-bill button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #1f5da5;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    color: white;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}

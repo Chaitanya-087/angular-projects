@@ -1,24 +1,26 @@
-<div>
-  <ul>
-    <li *ngFor="let section of machine">
-      {{ section.sid }}
-      <ul>
-        <li *ngFor="let slot of section.slots">
-          {{ slot | json }}
-        </li>
-      </ul>
-    </li>
-  </ul>
-  <input type="number" #product placeholder="enter product id" />
-  <button (click)="open(product.valueAsNumber)">open door</button>
-  <ul>
-    <li *ngFor="let product of products">
-      {{ product | json }}
-    </li>
-    <li *ngIf="this.products.length">
-        <h3>Bill</h3>
-      payment: {{ this.getTotalPrice() }}
+<div class="machine">
+  <div class="select-box">
+    <div class="input-wrapper">
+      <input type="number" #product placeholder="enter product id" />
+      <button (click)="open(product.valueAsNumber)">open door</button>
+    </div>
+  </div>
+  <div class="overlay" *ngIf="this.products.length">
+    <div class="generated-bill" >
+      <h3>Bill</h3>
+      <p>payment: {{ this.getTotalPrice() | currency }}</p>
       <button (click)="pay()">pay</button>
-    </li>
-  </ul>
+    </div>
+  </div>
+
+  <div class="section-group">
+    <div class="section" *ngFor="let section of machine">
+      <div class="product" *ngFor="let slot of section.slots">
+        <h3>{{ slot.name }}</h3>
+        <span>{{ slot.id }}</span>
+        <p>price: {{ slot.price | currency }}</p>
+        <p>quantity: {{ slot.quantity }}</p>
+      </div>
+    </div>
+  </div>
 </div>

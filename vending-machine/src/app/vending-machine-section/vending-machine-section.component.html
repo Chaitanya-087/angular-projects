@@ -1,9 +1,11 @@
-<div>
+<div class="section">
   <button (click)="close()">close</button>
-  {{ section?.sid }}
-  <div class="card-group">
-    <div class="card" *ngFor="let slot of section?.slots">
-      {{ slot | json }}
+  <div class="group">
+    <div class="product" *ngFor="let slot of section?.slots">
+      <h3>{{ slot.name }}</h3>
+      <span>{{ slot.id }}</span>
+      <p>price: {{ slot.price | currency }}</p>
+      <p>quantity: {{ slot.quantity }}</p>
       <input
         type="number"
         #quantity
@@ -15,10 +17,16 @@
       <button (click)="putBack(slot)">put back</button>
     </div>
   </div>
-  <div class="card-group" *ngIf="this.products.length">
+  <div class="taken-products" *ngIf="this.products.length">
     <h3>taken products</h3>
-    <div class="card" *ngFor="let product of products">
-      {{ product | json }}
+
+    <div class="group">
+      <div class="product" *ngFor="let product of products">
+        <h3>{{ product.name }}</h3>
+        <span>{{ product.id }}</span>
+        <p>price: {{ product.price | currency }}</p>
+        <p>quantity: {{ product.quantity }}</p>
+      </div>
     </div>
   </div>
 </div>
