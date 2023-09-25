@@ -1,0 +1,24 @@
+<div>
+  <ul>
+    <li *ngFor="let section of machine">
+      {{ section.sid }}
+      <ul>
+        <li *ngFor="let slot of section.slots">
+          {{ slot | json }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <input type="number" #product placeholder="enter product id" />
+  <button (click)="open(product.valueAsNumber)">open door</button>
+  <ul>
+    <li *ngFor="let product of products">
+      {{ product | json }}
+    </li>
+    <li *ngIf="this.products.length">
+        <h3>Bill</h3>
+      payment: {{ this.getTotalPrice() }}
+      <button (click)="pay()">pay</button>
+    </li>
+  </ul>
+</div>

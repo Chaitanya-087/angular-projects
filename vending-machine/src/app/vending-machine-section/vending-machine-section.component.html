@@ -1,0 +1,24 @@
+<div>
+  <button (click)="close()">close</button>
+  {{ section?.sid }}
+  <div class="card-group">
+    <div class="card" *ngFor="let slot of section?.slots">
+      {{ slot | json }}
+      <input
+        type="number"
+        #quantity
+        [max]="slot.quantity"
+        [min]="1"
+        [value]="1"
+      />
+      <button (click)="take(slot, quantity)">take</button>
+      <button (click)="putBack(slot)">put back</button>
+    </div>
+  </div>
+  <div class="card-group" *ngIf="this.products.length">
+    <h3>taken products</h3>
+    <div class="card" *ngFor="let product of products">
+      {{ product | json }}
+    </div>
+  </div>
+</div>
